@@ -1,0 +1,53 @@
+ul, li {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  text-align: center;
+}
+
+figure {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  width: 80%;
+  height: 200px;
+}
+
+ul {
+  border-bottom: 10px solid black;
+  width: 32%;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+ul:hover {
+  border-bottom: 10px solid blue;
+}
+
+li {
+  height: 30%;
+  background-color: gray;
+  list-style: none;
+  margin: 5px;
+  border-radius: 50px;
+}
+
+.selected {
+  border-bottom: 10px solid green;
+}
+
+.size-1 {
+  width: 30%;
+}
+
+.size-2 {
+  width: 60%;
+}
+
+.size-3 {
+  width: 90%;
+}
