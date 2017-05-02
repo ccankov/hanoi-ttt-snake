@@ -1,0 +1,43 @@
+ul, li, figure {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  text-align: center;
+}
+
+figure {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  height: 500px;
+  border: 12.5px solid grey;
+}
+
+ul {
+  flex: 1;
+  list-style: none;
+  display: flex;
+  /*box-sizing: border-box;*/
+}
+
+li {
+  flex: 1;
+  border: 1px solid black;
+  /*box-sizing: border-box;*/
+}
+
+.blank {
+  background-color: white;
+}
+
+.snak {
+  background-color: green;
+}
+
+.apple {
+  background-color: red;
+}
