@@ -2,8 +2,8 @@ const Snake = require('./snake');
 
 class Board {
   constructor() {
-    this.snak = new Snake();
-    this.applePos = this.randomPos();
+    this.snak = new Snake(this);
+    this.newApple();
   }
 
   validPos(pos) {
@@ -18,6 +18,10 @@ class Board {
     let row = Math.floor(Board.DIM_X * Math.random());
     let col = Math.floor(Board.DIM_Y * Math.random());
     return [row, col];
+  }
+
+  newApple() {
+    this.applePos = this.randomPos();
   }
 }
 

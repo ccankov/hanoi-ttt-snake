@@ -6,7 +6,7 @@ class View {
     this.board = new Board();
     this.setupBoard();
     this.bindEvents();
-    setInterval(this.step.bind(this), 100);
+    this.refreshInterval = setInterval(this.step.bind(this), 100);
   }
 
   bindEvents() {
@@ -24,8 +24,12 @@ class View {
   }
 
   step() {
-    this.board.snak.move();
-    this.render();
+    if(this.board.snak.move()) {
+      this.render();
+    } else {
+      alert('You lose!');
+      clearInterval(this.refreshInterval);
+    }
   }
 
   setupBoard() {

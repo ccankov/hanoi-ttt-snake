@@ -1,8 +1,8 @@
 class Snake {
-  constructor(){
+  constructor(board){
     this.direction = 1;
     this.segments = [[19,9],[18,9]];
-
+    this.board = board;
   }
 
   move() {
@@ -10,17 +10,38 @@ class Snake {
     let diff = Snake.directionDiffs[this.direction];
     let newHead = [head[0] + diff[0],head[1] + diff[1]];
 
-    // if newHead out of bounds, lose
+    if (!this.board.validPos(newHead) || this.intersectsSelf(newHead)) {
+      return false;
+    }
 
     this.segments.push(newHead);
-    this.segments.shift();
+
+    let gotApple = (newHead[0] === this.board.applePos[0] &&
+      newHead[1] === this.board.applePos[1]);
+
+    if (gotApple) {
+      this.board.newApple();
+    } else {
+      this.segments.shift();
+    }
+
+    return true;
+  }
+
+  intersectsSelf(pos) {
+    for(let i = 0; i < this.segments.length; i ++){
+      let [row, col] = this.segments[i];
+      if (row === pos[0] && col === pos[1]) {
+        return true;
+      }
+    }
+
+    return false;
   }
 
   turn(dirIdx) {
     this.direction = dirIdx;
   }
-
-
 
 }
 

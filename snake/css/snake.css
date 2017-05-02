@@ -21,13 +21,10 @@ ul {
   flex: 1;
   list-style: none;
   display: flex;
-  /*box-sizing: border-box;*/
 }
 
 li {
   flex: 1;
-  border: 1px solid black;
-  /*box-sizing: border-box;*/
 }
 
 .blank {
